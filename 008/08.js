@@ -36,10 +36,20 @@ function buildMyChart () {
         })
     
     myRects.exit()
+//        .transition()
+//        .duration(1000)
+//        .attr('height', 0)
+        .remove()
+    
+    myRects
         .transition()
         .duration(1000)
-        .attr('height', 0)
-        .remove()
+        .attr('height', function(d, i){
+                return d.age
+        })
+        .attr('y', function(d, i){
+            return 120 - d.age
+        })
 }
 
 d3.select('#clickme')
@@ -51,7 +61,7 @@ d3.select('#clickme')
 
 d3.select('#remove')
     .on('click', function(){
-        dataset.splice(dataset.length-1, 1)
+        dataset.splice(0, 1)
         console.log(dataset)
         buildMyChart()
     })
