@@ -36,6 +36,9 @@ function buildMyChart () {
         })
     
     myRects.exit()
+        .transition()
+        .duration(1000)
+        .attr('height', 0)
         .remove()
 }
 
