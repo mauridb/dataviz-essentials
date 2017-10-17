@@ -9,6 +9,8 @@ console.log(dataset)
 // STATES : ENTER - EXIT - UPDATE
 // CHANGE DATAVIZ ACCORDING TO THE DATASET
 
+// DECORATE THE DATAPOINT
+
 function buildMyChart () {
     var myRects = d3.select('svg')
         .selectAll('rect')
@@ -25,6 +27,12 @@ function buildMyChart () {
         })
         .attr('y', function(d, i){
             return 120 - d.age
+        })
+        .on('mouseenter', function(d, i){
+            d.selected = true
+            d3.select(this)
+                .style('fill', 'violet')
+            console.log(dataset)
         })
 }
 
