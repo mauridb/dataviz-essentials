@@ -36,20 +36,21 @@ function buildMyChart () {
         })
     
     myRects.exit()
-//        .transition()
-//        .duration(1000)
-//        .attr('height', 0)
-        .remove()
-    
-    myRects
         .transition()
         .duration(1000)
-        .attr('height', function(d, i){
-                return d.age
-        })
-        .attr('y', function(d, i){
-            return 120 - d.age
-        })
+        .attr('height', 0)
+        .attr('y', 120)
+        .remove()
+    
+//    myRects
+//        .transition()
+//        .duration(1000)
+//        .attr('height', function(d, i){
+//                return d.age
+//        })
+//        .attr('y', function(d, i){
+//            return 120 - d.age
+//        })
 }
 
 d3.select('#clickme')
