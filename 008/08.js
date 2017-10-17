@@ -34,6 +34,9 @@ function buildMyChart () {
                 .style('fill', 'violet')
             console.log(dataset)
         })
+    
+    myRects.exit()
+        .remove()
 }
 
 d3.select('#clickme')
@@ -45,7 +48,7 @@ d3.select('#clickme')
 
 d3.select('#remove')
     .on('click', function(){
-        dataset.splice(0, 1)
+        dataset.splice(dataset.length-1, 1)
         console.log(dataset)
         buildMyChart()
     })
